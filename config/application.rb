@@ -73,7 +73,7 @@ module Burroughs
         helper_specs: false,
         routing_specs: false,
         controller_specs: false,
-        request_specs: true, dir: 'spec/features'
+        request_specs: false
       g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
   end
