@@ -1,0 +1,14 @@
+- content_for(:title) { 'Establishments' }
+
+%table.table.table-striped.table-hover
+  %tr
+    %th Name
+    %th
+
+  - @establishments.each do |establishment|
+    %tr
+      %td= link_to establishment.name, establishment
+      %td= pluralize(establishment.locations.length, "known location")
+
+.form-actions
+  = link_to 'New Establishment', new_establishment_path, class: 'btn btn-primary'

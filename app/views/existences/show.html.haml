@@ -1,0 +1,5 @@
+- content_for(:title) { "#{@existence.establishment_name} (#{@existence.start_year}-#{@existence.end_year})" }
+
+%p
+  %strong Location:
+  = link_to @existence.location_name, @existence.location

@@ -1,12 +1,20 @@
 - content_for(:title) { @location.address }
 
 %p
-  %b Latitude:
   = @location.latitude
-%p
-  %b Longitude:
   = @location.longitude
+
+%table.table.table-striped.table-hover
+  %tr
+    %th Business
+    %th From
+    %th Through
+  - @location.existences.by_existence_years.each do |existence|
+    %tr
+      %td= link_to existence.establishment_name, existence.establishment
+      %td= existence.start_year
+      %td= existence.end_year
 
 .form-actions
   = link_to 'Edit', edit_location_path(@location), class: 'btn btn-primary'
-
+  = link_to 'Delete', @location, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger'
