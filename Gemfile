@@ -2,8 +2,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 
-gem 'mysql2'
-
 gem 'haml-rails'
 gem 'simple_form'
 
@@ -22,6 +20,7 @@ end
 gem 'jquery-rails'
 
 group :development do
+  gem 'mysql2'
   gem 'webrick', '~> 1.3.1'
   gem 'quiet_assets'
   gem 'guard-rspec', '~> 2.5.0'
@@ -40,4 +39,8 @@ group :test do
   gem 'shoulda-matchers', '~> 1.4.2'
   gem 'launchy'
   gem 'database_cleaner'
+end
+
+group :production do
+  gem 'pg'
 end
