@@ -1,0 +1,11 @@
+= simple_form_for(@building) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :description
+    = f.input :start_year
+    = f.input :end_year
+
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary'

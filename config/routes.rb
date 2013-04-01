@@ -1,9 +1,10 @@
 Burroughs::Application.routes.draw do
+  resources :buildings
+  resources :locations
+
   resources :establishments do
     resources :existences
   end
 
-  resources :locations
-
-  root to: 'locations#index'
+  root to: 'buildings#index'
 end

@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130328035817) do
+ActiveRecord::Schema.define(:version => 20130401021112) do
+
+  create_table "buildings", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "start_year"
+    t.integer  "end_year"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "establishments", :force => true do |t|
     t.string   "name"
@@ -37,8 +46,11 @@ ActiveRecord::Schema.define(:version => 20130328035817) do
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "building_id"
   end
+
+  add_index "locations", ["building_id"], :name => "index_locations_on_building_id"
 
 end

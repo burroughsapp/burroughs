@@ -1,0 +1,12 @@
+- content_for(:title) { 'Buildings' }
+
+%table.table.table-striped.table-hover
+  %tr
+    %th Name
+
+  - @buildings.each do |building|
+    %tr
+      %td= link_to building.name, building
+
+.form-actions
+  = link_to 'New Building', new_building_path, class: 'btn btn-primary'

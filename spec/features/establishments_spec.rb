@@ -2,6 +2,7 @@ require 'spec_helper'
 
 feature 'Establishments' do
   scenario 'Add an establishment' do
+    pending 'feature specs pending until basics are sorted out'
     FactoryGirl.create(:location)
 
     visit root_path

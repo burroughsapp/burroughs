@@ -5,11 +5,15 @@
 %table.table.table-striped.table-hover
   %tr
     %th Location
+    %th Building
     %th From
     %th Through
   - @establishment.existences.by_existence_years.each do |existence|
     %tr
       %td= link_to existence.location.name, existence.location
+      %td
+        - if existence.location.building
+          = link_to existence.location.building.try(:name), existence.location.building
       %td= existence.start_year
       %td= existence.end_year
 
