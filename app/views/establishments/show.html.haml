@@ -12,7 +12,7 @@
     %tr
       %td= link_to existence.location.name, existence.location
       %td
-        - if existence.location.building
+        - if existence.location and existence.location.building
           = link_to existence.location.building.try(:name), existence.location.building
       %td= existence.start_year
       %td= existence.end_year
