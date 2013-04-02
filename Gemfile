@@ -4,6 +4,7 @@ gem 'rails', '3.2.13'
 
 gem 'haml-rails'
 gem 'simple_form'
+gem 'admin_assistant'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
