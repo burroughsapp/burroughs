@@ -1,5 +1,5 @@
 class Location < ActiveRecord::Base
-  attr_accessible :address, :latitude, :longitude
+  attr_accessible :address, :latitude, :longitude, :building_id
 
   belongs_to :building
   has_many :existences
