@@ -10,7 +10,9 @@
     %th Through
   - @establishment.existences.by_existence_years.each do |existence|
     %tr
-      %td= link_to existence.location.name, existence.location
+      %td
+        - if existence.location
+          = link_to existence.location.name, existence.location
       %td
         - if existence.location and existence.location.building
           = link_to existence.location.building.try(:name), existence.location.building
