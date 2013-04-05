@@ -1,7 +1,7 @@
 class BuildingsController < ApplicationController
 
   def index
-    @buildings = Building.all
+    @buildings = Building.by_name.by_existence_years
 
     respond_to do |format|
       format.html # index.html.erb

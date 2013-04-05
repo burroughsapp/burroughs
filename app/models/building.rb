@@ -6,6 +6,9 @@ class Building < ActiveRecord::Base
 
   validates :name, presence: true
 
+  scope :by_name, lambda { order('name') }
+  scope :by_existence_years, lambda { order("start_year, end_year") }
+
   def fullname
     name + year_range
   end
