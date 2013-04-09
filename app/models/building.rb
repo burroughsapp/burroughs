@@ -3,6 +3,7 @@ class Building < ActiveRecord::Base
 
   has_many :locations
   has_many :existences, through: :locations
+  has_many :sources, as: :sourceable
 
   validates :name, presence: true
 

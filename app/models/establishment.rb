@@ -3,6 +3,7 @@ class Establishment < ActiveRecord::Base
 
   has_many :existences
   has_many :locations, through: :existences
+  has_many :sources, as: :sourceable
 
   validates :name, presence: true
 end

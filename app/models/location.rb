@@ -4,6 +4,7 @@ class Location < ActiveRecord::Base
   belongs_to :building
   has_many :existences
   has_many :establishments, through: :existences
+  has_many :sources, as: :sourceable
 
   validates :address, presence: true
 

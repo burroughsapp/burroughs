@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130401021112) do
+ActiveRecord::Schema.define(:version => 20130409044454) do
 
   create_table "buildings", :force => true do |t|
     t.string   "name"
@@ -52,5 +52,15 @@ ActiveRecord::Schema.define(:version => 20130401021112) do
   end
 
   add_index "locations", ["building_id"], :name => "index_locations_on_building_id"
+
+  create_table "sources", :force => true do |t|
+    t.text     "content"
+    t.integer  "sourceable_id"
+    t.string   "sourceable_type"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "sources", ["sourceable_id", "sourceable_type"], :name => "index_sources_on_sourceable_id_and_sourceable_type"
 
 end

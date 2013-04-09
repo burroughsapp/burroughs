@@ -17,5 +17,9 @@
       %td= existence.start_year
       %td= existence.end_year
 
+%h2 Sources
+
+= render 'sources/sources'
+
 .form-actions
   = link_to 'Edit', edit_building_path(@building), class: 'btn btn-primary'

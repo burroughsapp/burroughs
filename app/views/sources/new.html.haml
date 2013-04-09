@@ -1,0 +1,7 @@
+- content_for(:title) { 'New source' }
+
+= form_for [@sourceable, @source] do |f|
+  .form-inputs
+    = f.input :content
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary'
