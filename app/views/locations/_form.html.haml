@@ -2,7 +2,7 @@
   = f.error_notification
 
   .form-inputs
-    = f.association :building
+    = f.association :building, label_method: :fullname, id_method: :id
     = f.input :address
 
   .form-actions

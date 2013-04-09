@@ -8,4 +8,6 @@ class Location < ActiveRecord::Base
   validates :address, presence: true
 
   alias_attribute :name, :address
+
+  delegate :fullname, to: :building, prefix: true, allow_nil: true
 end
