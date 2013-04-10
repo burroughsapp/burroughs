@@ -2,3 +2,8 @@
  *= require admin_assistant
  *= require token-input
  */
+
+textarea {
+  width: 400px !important;
+  height: 200px !important;
+}
