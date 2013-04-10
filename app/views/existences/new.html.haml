@@ -1,13 +1,3 @@
 - content_for(:title) { "New location for #{@existence.establishment.name}"}
 
-= simple_form_for([@existence.establishment, @existence]) do |f|
-  = f.error_notification
-
-  .form-inputs
-    = f.association :location
-    = f.input :description
-    = f.input :start_year
-    = f.input :end_year
-
-  .form-actions
-    = f.button :submit, class: 'btn btn-primary'
+= render 'form', existence: @existence

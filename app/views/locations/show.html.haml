@@ -5,16 +5,7 @@
   = @location.latitude
   = @location.longitude
 
-%table.table.table-striped.table-hover
-  %tr
-    %th Business
-    %th From
-    %th Through
-  - @location.existences.by_existence_years.each do |existence|
-    %tr
-      %td= link_to existence.establishment_name, existence.establishment
-      %td= existence.start_year
-      %td= existence.end_year
+= render 'existences/existences', existences: @location.existences
 
 .form-actions
   = link_to 'Edit', edit_location_path(@location), class: 'btn btn-primary'

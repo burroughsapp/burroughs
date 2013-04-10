@@ -18,6 +18,15 @@ class ExistencesController < ApplicationController
     end
   end
 
+  def update
+    @existence = Existence.find(params[:id])
+    if @existence.update_attributes(params[:existence])
+      redirect_to @existence.establishment, notice: 'Successfully updated establishment location.'
+    else
+      render :edit
+    end
+  end
+
   private
   def find_model
     @existence = Existence.find(params[:id]) if params[:id]

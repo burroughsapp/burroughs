@@ -4,18 +4,7 @@
 
 %h2 Establishments
 
-%table.table.table-striped.table-hover
-  %tr
-    %th Name
-    %th Address
-    %th From
-    %th To
-  - @building.existences.each do |existence|
-    %tr
-      %td= link_to existence.establishment.name, existence.establishment
-      %td= existence.location.address
-      %td= existence.start_year
-      %td= existence.end_year
+= render 'existences/existences', existences: @building.existences
 
 %h2 Sources
 
