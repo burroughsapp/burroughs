@@ -1,0 +1,6 @@
+%h2 Sources
+
+%ul
+  - sourceable.sources.each do |source|
+    %li= source.content
+= link_to 'Add source', [:new, sourceable, :source], class: 'btn'

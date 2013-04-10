@@ -3,3 +3,5 @@
 %p
   %strong Location:
   = link_to @existence.location_name, @existence.location
+
+= render 'sources/sources', sourceable: @existence

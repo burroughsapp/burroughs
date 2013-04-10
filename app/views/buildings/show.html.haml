@@ -6,9 +6,7 @@
 
 = render 'existences/existences', existences: @building.existences
 
-%h2 Sources
-
-= render 'sources/sources'
+= render 'sources/sources', sourceable: @building
 
 .form-actions
   = link_to 'Edit', edit_building_path(@building), class: 'btn btn-primary'

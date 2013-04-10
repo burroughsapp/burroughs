@@ -3,6 +3,8 @@
 = simple_format @establishment.description
 = render 'existences/existences', existences: @establishment.existences
 
+= render 'sources/sources', sourceable: @establishment
+
 .form-actions
   = link_to 'Edit', edit_establishment_path(@establishment), class: 'btn btn-primary'
   = link_to 'Add Location', new_establishment_existence_path(@establishment), class: 'btn'

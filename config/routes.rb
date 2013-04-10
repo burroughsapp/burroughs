@@ -16,5 +16,9 @@ Burroughs::Application.routes.draw do
     resources :sources
   end
 
+  resources :existences do
+    resources :sources
+  end
+
   root to: 'buildings#index'
 end
