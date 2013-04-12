@@ -27,6 +27,7 @@ group :development do
   gem 'guard-rspec', '~> 2.5.0'
   gem 'guard-spork', '~> 1.5.0'
   gem 'rb-fsevent', '~> 0.9'
+  gem 'rails-erd'
 end
 
 group :development, :test do
