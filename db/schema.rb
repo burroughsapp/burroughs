@@ -11,56 +11,66 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130409044454) do
+ActiveRecord::Schema.define(:version => 20130416001402) do
 
-  create_table "buildings", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.integer  "start_year"
-    t.integer  "end_year"
+  create_table "building_locations", :force => true do |t|
+    t.integer  "building_id"
+    t.integer  "location_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  add_index "building_locations", ["building_id"], :name => "index_building_locations_on_building_id"
+  add_index "building_locations", ["location_id"], :name => "index_building_locations_on_location_id"
+
+  create_table "buildings", :force => true do |t|
+    t.string    "name"
+    t.text      "description"
+    t.integer   "start_year"
+    t.integer   "end_year"
+    t.timestamp "created_at",  :null => false
+    t.timestamp "updated_at",  :null => false
   end
 
   create_table "establishments", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.string    "name"
+    t.text      "description"
+    t.timestamp "created_at",  :null => false
+    t.timestamp "updated_at",  :null => false
   end
 
   create_table "existences", :force => true do |t|
-    t.integer  "location_id"
-    t.integer  "establishment_id"
-    t.text     "description"
-    t.integer  "start_year"
-    t.integer  "end_year"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.integer   "location_id"
+    t.integer   "establishment_id"
+    t.text      "description"
+    t.integer   "start_year"
+    t.integer   "end_year"
+    t.timestamp "created_at",       :null => false
+    t.timestamp "updated_at",       :null => false
   end
 
-  add_index "existences", ["establishment_id"], :name => "index_existences_on_establishment_id"
-  add_index "existences", ["location_id"], :name => "index_existences_on_location_id"
+  add_index "existences", ["establishment_id"], :name => "establishment_id"
+  add_index "existences", ["location_id"], :name => "location_id"
 
   create_table "locations", :force => true do |t|
-    t.string   "address"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.integer  "building_id"
+    t.string    "address"
+    t.float     "latitude"
+    t.float     "longitude"
+    t.timestamp "created_at",  :null => false
+    t.timestamp "updated_at",  :null => false
+    t.integer   "building_id"
   end
 
-  add_index "locations", ["building_id"], :name => "index_locations_on_building_id"
+  add_index "locations", ["building_id"], :name => "building_id"
 
   create_table "sources", :force => true do |t|
-    t.text     "content"
-    t.integer  "sourceable_id"
-    t.string   "sourceable_type"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.text      "content"
+    t.integer   "sourceable_id"
+    t.string    "sourceable_type"
+    t.timestamp "created_at",      :null => false
+    t.timestamp "updated_at",      :null => false
   end
 
-  add_index "sources", ["sourceable_id", "sourceable_type"], :name => "index_sources_on_sourceable_id_and_sourceable_type"
+  add_index "sources", ["sourceable_id", "sourceable_type"], :name => "sourceable_id"
 
 end

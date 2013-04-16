@@ -1,7 +1,8 @@
 class Location < ActiveRecord::Base
   attr_accessible :address, :latitude, :longitude, :building_id
 
-  belongs_to :building
+  has_many :building_locations
+  has_many :buildings, through: :building_locations
   has_many :existences
   has_many :establishments, through: :existences
   has_many :sources, as: :sourceable

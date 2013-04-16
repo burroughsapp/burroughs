@@ -1,7 +1,8 @@
 class Building < ActiveRecord::Base
   attr_accessible :description, :end_year, :name, :start_year
 
-  has_many :locations
+  has_many :building_locations
+  has_many :locations, through: :building_locations
   has_many :existences, through: :locations
   has_many :sources, as: :sourceable
 
