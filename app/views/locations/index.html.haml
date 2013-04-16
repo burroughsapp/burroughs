@@ -3,7 +3,6 @@
 %table.table.table-striped.table-hover
   %tr
     %th Address
-    %th Building
     %th
     %th Latitude
     %th Longitude
@@ -11,9 +10,6 @@
   - @locations.each do |location|
     %tr
       %td= link_to location.address, location
-      %td
-        - if location.building
-          = link_to location.building.try(:name), location.building
       %td= pluralize(location.establishments.length, "known establishment")
       %td= location.latitude
       %td= location.longitude

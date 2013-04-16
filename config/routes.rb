@@ -1,9 +1,11 @@
 Burroughs::Application.routes.draw do
+
   get "sources/index"
 
   get "sources/new"
 
   resources :buildings do
+    resources :building_locations
     resources :sources
   end
 

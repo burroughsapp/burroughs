@@ -1,0 +1,8 @@
+= simple_form_for [building_location.building,building_location] do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :location
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary'
+    = link_to 'Add another location', new_location_path, class: 'btn'

@@ -3,12 +3,14 @@
 %table.table.table-striped.table-hover
   %tr
     %th Name
+    %th Locations
     %th From
     %th To
 
   - @buildings.each do |building|
     %tr
       %td= link_to building.name, building
+      %td= building.locations.map(&:address).join(', ')
       %td= building.start_year
       %td= building.end_year
 

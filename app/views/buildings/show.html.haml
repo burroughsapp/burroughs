@@ -2,6 +2,22 @@
 
 = simple_format @building.description
 
+%h2 Locations
+
+%table.table.table-striped
+  %tr
+    %th Address
+    %th Latitude
+    %th Longitude
+  - @building.building_locations.each do |bl|
+    %tr
+      %td= link_to bl.location.name, bl.location
+      %td= bl.location.latitude
+      %td= bl.location.longitude
+
+%p
+  = link_to 'New location', new_building_building_location_path(@building), class: 'btn'
+
 %h2 Establishments
 
 = render 'existences/existences', existences: @building.existences

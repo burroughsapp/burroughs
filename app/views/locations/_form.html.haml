@@ -2,8 +2,9 @@
   = f.error_notification
 
   .form-inputs
-    = f.association :building, label_method: :fullname, id_method: :id
     = f.input :address
+    = f.input :latitude
+    = f.input :longitude
 
   .form-actions
     = f.button :submit, class: 'btn btn-primary'
