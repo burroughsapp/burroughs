@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130416001402) do
+ActiveRecord::Schema.define(:version => 20130417040138) do
 
   create_table "building_locations", :force => true do |t|
     t.integer  "building_id"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20130416001402) do
     t.integer   "end_year"
     t.timestamp "created_at",       :null => false
     t.timestamp "updated_at",       :null => false
+    t.string    "address"
   end
 
   add_index "existences", ["establishment_id"], :name => "establishment_id"

@@ -1,5 +1,5 @@
 class Existence < ActiveRecord::Base
-  attr_accessible :description, :end_year, :start_year, :location_id
+  attr_accessible :description, :end_year, :start_year, :location_id, :address
 
   belongs_to :location
   belongs_to :establishment

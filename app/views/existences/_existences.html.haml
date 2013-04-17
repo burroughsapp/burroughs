@@ -1,6 +1,7 @@
 %table.table.table-striped.table-hover
   %tr
     %th Establishment
+    %th Postal address
     %th Location
     %th From
     %th Through
@@ -10,6 +11,7 @@
       %td
         - if existence.establishment
           = link_to existence.establishment.name, existence.establishment
+      %td= existence.address
       %td
         - if existence.location
           = link_to existence.location.name, existence.location
