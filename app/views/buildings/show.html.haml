@@ -9,11 +9,15 @@
     %th Address
     %th Latitude
     %th Longitude
+    %th
   - @building.building_locations.each do |bl|
     %tr
       %td= link_to bl.location.name, bl.location
       %td= bl.location.latitude
       %td= bl.location.longitude
+      %td{ style: 'text-align:right' }
+        = link_to 'Edit', [:edit, @building, bl], class: 'btn btn-mini'
+        = link_to 'Delete', [@building, bl], method: :delete, class: 'btn btn-mini', confirm: 'Are you sure?'
 
 %p
   = link_to 'New location', new_building_building_location_path(@building), class: 'btn'

@@ -1,2 +1,3 @@
-%h1 BuildingLocations#edit
-%p Find me in app/views/building_locations/edit.html.haml
+- content_for(:title) { "Edit building/location for #{@building.name}" }
+
+= render 'form', building_location: @building_location
