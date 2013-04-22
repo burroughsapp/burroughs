@@ -1,0 +1,2 @@
+module ExistenceLocationsHelper
+end

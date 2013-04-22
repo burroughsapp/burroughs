@@ -1,8 +1,9 @@
 class Existence < ActiveRecord::Base
   attr_accessible :description, :end_year, :start_year, :location_id, :address
 
-  belongs_to :location
   belongs_to :establishment
+  has_many :existence_locations
+  has_many :locations, through: :existence_locations
   has_many :sources, as: :sourceable
 
   delegate :name, to: :establishment, prefix: true

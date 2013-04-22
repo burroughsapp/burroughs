@@ -1,0 +1,21 @@
+%h1 Listing existence_locations
+
+%table
+  %tr
+    %th Existence
+    %th Location
+    %th
+    %th
+    %th
+
+  - @existence_locations.each do |existence_location|
+    %tr
+      %td= existence_location.existence
+      %td= existence_location.location
+      %td= link_to 'Show', existence_location
+      %td= link_to 'Edit', edit_existence_location_path(existence_location)
+      %td= link_to 'Destroy', existence_location, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Existence location', new_existence_location_path

@@ -14,11 +14,12 @@ Burroughs::Application.routes.draw do
   end
 
   resources :establishments do
-    resources :existences
+    # resources :existences
     resources :sources
   end
 
   resources :existences do
+    resources :existence_locations
     resources :sources
   end
 

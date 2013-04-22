@@ -1,11 +1,25 @@
 - content_for(:title) { @establishment.name }
 
 = simple_format @establishment.description
-= render 'existences/existences', existences: @establishment.existences
+
+%h2 Existences
+
+%table.table.table-striped.table-hover
+  %tr
+    %th Start year
+    %th End year
+    %th Locations
+    %th
+
+  - @establishment.existences.each do |existence|
+    %tr
+      %td= existence.start_year
+      %td= existence.end_year
+      %td= existence.locations.map(&:address).join(', ')
+      %td= link_to 'Show', existence, class: 'btn btn-mini'
 
 = render 'sources/sources', sourceable: @establishment
 
 .form-actions
   = link_to 'Edit', edit_establishment_path(@establishment), class: 'btn btn-primary'
-  = link_to 'Add Location', new_establishment_existence_path(@establishment), class: 'btn'
   = link_to 'Delete', @establishment, method: :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger'

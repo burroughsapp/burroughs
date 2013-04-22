@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Existence:
+  = @existence_location.existence
+%p
+  %b Location:
+  = @existence_location.location
+
+= link_to 'Edit', edit_existence_location_path(@existence_location)
+\|
+= link_to 'Back', existence_locations_path

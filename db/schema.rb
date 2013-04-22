@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130417040138) do
+ActiveRecord::Schema.define(:version => 20130422015837) do
 
   create_table "building_locations", :force => true do |t|
     t.integer  "building_id"
@@ -38,6 +38,16 @@ ActiveRecord::Schema.define(:version => 20130417040138) do
     t.timestamp "created_at",  :null => false
     t.timestamp "updated_at",  :null => false
   end
+
+  create_table "existence_locations", :force => true do |t|
+    t.integer  "existence_id"
+    t.integer  "location_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "existence_locations", ["existence_id"], :name => "index_existence_locations_on_existence_id"
+  add_index "existence_locations", ["location_id"], :name => "index_existence_locations_on_location_id"
 
   create_table "existences", :force => true do |t|
     t.integer   "location_id"

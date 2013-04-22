@@ -1,7 +1,23 @@
 - content_for(:title) { "#{@existence.establishment_name} (#{@existence.start_year}-#{@existence.end_year})" }
 
+%h2 Locations
+
+%table.table.table-striped
+  %tr
+    %th Address
+    %th Latitude
+    %th Longitude
+    %th
+  - @existence.existence_locations.each do |el|
+    %tr
+      %td= link_to el.location.name, el.location
+      %td= el.location.latitude
+      %td= el.location.longitude
+      %td{ style: 'text-align:right' }
+        = link_to 'Edit', [:edit, @existence, el], class: 'btn btn-mini'
+        = link_to 'Delete', [@existence, el], method: :delete, class: 'btn btn-mini', confirm: 'Are you sure?'
+
 %p
-  %strong Location:
-  = link_to @existence.location_name, @existence.location
+  = link_to 'New location', new_existence_existence_location_path(@existence), class: 'btn'
 
 = render 'sources/sources', sourceable: @existence
