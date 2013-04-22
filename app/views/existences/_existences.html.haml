@@ -13,8 +13,7 @@
           = link_to existence.establishment.name, existence.establishment
       %td= existence.address
       %td
-        - if existence.location
-          = link_to existence.location.name, existence.location
+        - if existence.locations
+          = existence.locations.map(&:address).join(', ')
       %td= existence.start_year
       %td= existence.end_year
-      %td= link_to 'Edit', edit_establishment_existence_path(existence.establishment, existence), class: 'btn btn-mini'
