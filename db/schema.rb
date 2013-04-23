@@ -24,19 +24,19 @@ ActiveRecord::Schema.define(:version => 20130422015837) do
   add_index "building_locations", ["location_id"], :name => "index_building_locations_on_location_id"
 
   create_table "buildings", :force => true do |t|
-    t.string    "name"
-    t.text      "description"
-    t.integer   "start_year"
-    t.integer   "end_year"
-    t.timestamp "created_at",  :null => false
-    t.timestamp "updated_at",  :null => false
+    t.string   "name"
+    t.text     "description"
+    t.integer  "start_year"
+    t.integer  "end_year"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "establishments", :force => true do |t|
-    t.string    "name"
-    t.text      "description"
-    t.timestamp "created_at",  :null => false
-    t.timestamp "updated_at",  :null => false
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "existence_locations", :force => true do |t|
@@ -50,38 +50,38 @@ ActiveRecord::Schema.define(:version => 20130422015837) do
   add_index "existence_locations", ["location_id"], :name => "index_existence_locations_on_location_id"
 
   create_table "existences", :force => true do |t|
-    t.integer   "location_id"
-    t.integer   "establishment_id"
-    t.text      "description"
-    t.integer   "start_year"
-    t.integer   "end_year"
-    t.timestamp "created_at",       :null => false
-    t.timestamp "updated_at",       :null => false
-    t.string    "address"
+    t.integer  "location_id"
+    t.integer  "establishment_id"
+    t.text     "description"
+    t.integer  "start_year"
+    t.integer  "end_year"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "address"
   end
 
-  add_index "existences", ["establishment_id"], :name => "establishment_id"
-  add_index "existences", ["location_id"], :name => "location_id"
+  add_index "existences", ["establishment_id"], :name => "index_existences_on_establishment_id"
+  add_index "existences", ["location_id"], :name => "index_existences_on_location_id"
 
   create_table "locations", :force => true do |t|
-    t.string    "address"
-    t.float     "latitude"
-    t.float     "longitude"
-    t.timestamp "created_at",  :null => false
-    t.timestamp "updated_at",  :null => false
-    t.integer   "building_id"
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "building_id"
   end
 
-  add_index "locations", ["building_id"], :name => "building_id"
+  add_index "locations", ["building_id"], :name => "index_locations_on_building_id"
 
   create_table "sources", :force => true do |t|
-    t.text      "content"
-    t.integer   "sourceable_id"
-    t.string    "sourceable_type"
-    t.timestamp "created_at",      :null => false
-    t.timestamp "updated_at",      :null => false
+    t.text     "content"
+    t.integer  "sourceable_id"
+    t.string   "sourceable_type"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
-  add_index "sources", ["sourceable_id", "sourceable_type"], :name => "sourceable_id"
+  add_index "sources", ["sourceable_id", "sourceable_type"], :name => "index_sources_on_sourceable_id_and_sourceable_type"
 
 end

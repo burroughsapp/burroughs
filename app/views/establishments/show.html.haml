@@ -11,12 +11,14 @@
     %th Locations
     %th
 
-  - @establishment.existences.each do |existence|
+  - @establishment.existences.by_existence_years.each do |existence|
     %tr
       %td= existence.start_year
       %td= existence.end_year
       %td= existence.locations.map(&:address).join(', ')
       %td= link_to 'Show', existence, class: 'btn btn-mini'
+
+= link_to 'New Existence', new_establishment_existence_path(@establishment), class: 'btn'
 
 = render 'sources/sources', sourceable: @establishment
 
