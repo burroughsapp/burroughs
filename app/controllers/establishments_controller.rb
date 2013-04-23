@@ -1,6 +1,6 @@
 class EstablishmentsController < ApplicationController
   def index
-    @establishments = Establishment.all
+    @establishments = Establishment.by_name
 
     respond_to do |format|
       format.html # index.html.erb

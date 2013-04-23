@@ -6,4 +6,6 @@ class Establishment < ActiveRecord::Base
   has_many :sources, as: :sourceable
 
   validates :name, presence: true
+
+  scope :by_name, lambda { order("name") }
 end
