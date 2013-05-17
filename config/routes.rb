@@ -1,5 +1,8 @@
 Burroughs::Application.routes.draw do
 
+  resources :artifacts
+
+
   get "sources/index"
 
   get "sources/new"

@@ -1,0 +1,8 @@
+- content_for(:title) { @artifact.name }
+
+= image_tag @artifact.file.url
+
+= simple_format @artifact.description
+
+.form-actions
+  = link_to 'Edit', edit_artifact_path(@artifact), class: 'btn btn-primary'
