@@ -1,6 +1,6 @@
 # Burroughs
 
-Burroughs is an historical database of places in Lawrence, Kansas.
+Burroughs is an historical database of places in Lawrence, Kansas with a time-machine experience for the user dialing back blocks, buildings, and businesses through the years, decades, and centuries.
 
 ## Get involved
 
