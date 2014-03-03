@@ -9,6 +9,7 @@ gem 'simple_form'
 gem 'admin_assistant'
 
 gem 'paperclip', '~> 3.1'
+gem 'aws-sdk'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

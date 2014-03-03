@@ -33,6 +33,10 @@ GEM
       dynamic_form
       will_paginate (~> 3.0)
     arel (3.0.2)
+    aws-sdk (1.35.0)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
+      uuidtools (~> 2.1)
     bourne (1.1.2)
       mocha (= 0.10.5)
     builder (3.0.4)
@@ -225,6 +229,7 @@ GEM
     uglifier (1.3.0)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    uuidtools (2.1.4)
     webrick (1.3.1)
     websocket (1.0.7)
     will_paginate (3.0.4)
@@ -236,6 +241,7 @@ PLATFORMS
 
 DEPENDENCIES
   admin_assistant
+  aws-sdk
   capybara (~> 2.0.2)
   capybara-webkit (~> 0.14.2)
   coffee-rails (~> 3.2.1)
