@@ -8,6 +8,8 @@
 
 = render 'sources/sources', sourceable: @location
 
+= render 'artifacts/artifacts', artifactable: @location
+
 .form-actions
   = link_to 'Edit', edit_location_path(@location), class: 'btn btn-primary'
   = link_to 'Delete', @location, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger'

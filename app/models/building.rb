@@ -5,6 +5,7 @@ class Building < ActiveRecord::Base
   has_many :locations, through: :building_locations
   has_many :existences, through: :locations
   has_many :sources, as: :sourceable
+  has_many :artifacts, as: :artifactable
 
   validates :name, presence: true
 

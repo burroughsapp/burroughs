@@ -5,6 +5,7 @@ class Existence < ActiveRecord::Base
   has_many :existence_locations
   has_many :locations, through: :existence_locations
   has_many :sources, as: :sourceable
+  has_many :artifacts, as: :artifactable
 
   delegate :name, to: :establishment, prefix: true
   delegate :name, to: :location, prefix: true

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130517025935) do
+ActiveRecord::Schema.define(:version => 20140327013120) do
 
   create_table "artifacts", :force => true do |t|
     t.string   "name"
@@ -22,7 +22,12 @@ ActiveRecord::Schema.define(:version => 20130517025935) do
     t.string   "file_content_type"
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
+    t.integer  "artifactable_id"
+    t.string   "artifactable_type"
   end
+
+  add_index "artifacts", ["artifactable_id"], :name => "index_artifacts_on_artifactable_id"
+  add_index "artifacts", ["artifactable_type"], :name => "index_artifacts_on_artifactable_type"
 
   create_table "building_locations", :force => true do |t|
     t.integer  "building_id"

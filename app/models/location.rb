@@ -6,6 +6,7 @@ class Location < ActiveRecord::Base
   has_many :existences
   has_many :establishments, through: :existences
   has_many :sources, as: :sourceable
+  has_many :artifacts, as: :artifactable
 
   validates :address, presence: true
 

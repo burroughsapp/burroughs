@@ -1,8 +1,7 @@
 - content_for(:title) { @artifact.name }
 
-= image_tag @artifact.file.url
+= image_tag @artifact.file.url(:medium)
 
 = simple_format @artifact.description
 
-.form-actions
-  = link_to 'Edit', edit_artifact_path(@artifact), class: 'btn btn-primary'
+= link_to 'Full size', @artifact.file.url, class: 'btn'
