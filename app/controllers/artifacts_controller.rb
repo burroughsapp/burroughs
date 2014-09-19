@@ -1,5 +1,6 @@
 class ArtifactsController < ApplicationController
-  before_filter :load_artifactable, only: [:new, :create]
+  before_filter :load_artifactable, except: [:show]
+  before_filter :load_artifact, except: [:new]
 
   def new
     @artifact = @artifactable.artifacts.new
@@ -15,10 +16,29 @@ class ArtifactsController < ApplicationController
   end
 
   def show
-    @artifact = Artifact.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @artifact.update_attributes(params[:artifact])
+      redirect_to @artifactable, notice: 'Successfully updated artifact.'
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @artifact.destroy
+    redirect_to @artifactable, notice: 'Successfully deleted artifact.'
   end
 
   private
+
+  def load_artifact
+    @artifact = Artifact.find(params[:id])
+  end
 
   def load_artifactable
     resource, id = request.path.split('/')[1,2]

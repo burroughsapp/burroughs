@@ -6,10 +6,14 @@
       %th
       %th Name
       %th Description
+      %th
     - artifactable.artifacts.each do |artifact|
       %tr
         %td= link_to image_tag(artifact.file.url(:thumb)), artifact
         %td= link_to artifact.name, artifact
         %td= artifact.description
+        %td{ style: 'text-align:right' }
+          = link_to 'Edit', [:edit, artifactable, artifact], class: 'btn btn-mini'
+          = link_to 'Delete', [artifactable, artifact], method: :delete, class: 'btn btn-mini', confirm: 'Are you sure?'
 
 = link_to 'Add artifact', [:new, artifactable, :artifact], class: 'btn'
